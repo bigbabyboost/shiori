@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
@@ -15,7 +16,7 @@ import eu.kanade.presentation.browse.RelatedMangasLoadingItem
 import eu.kanade.tachiyomi.ui.manga.RelatedManga
 import tachiyomi.domain.manga.model.Manga
 import tachiyomi.i18n.MR
-import tachiyomi.i18n.sy.SYMR
+import tachiyomi.i18n.kmk.KMR
 import tachiyomi.presentation.core.components.material.padding
 import tachiyomi.presentation.core.i18n.stringResource
 
@@ -39,6 +40,7 @@ fun RelatedMangasList(
         relatedMangas.forEach { related ->
             val isLoading = related is RelatedManga.Loading
             if (isLoading) {
+                item(key = "$related#divider") { HorizontalDivider() }
                 stickyHeader(key = "$related#header") {
                     RelatedMangaTitle(
                         title = stringResource(MR.strings.loading),
@@ -51,12 +53,13 @@ fun RelatedMangasList(
                 item(key = "$related#content") { RelatedMangasLoadingItem() }
             } else {
                 val relatedManga = related as RelatedManga.Success
+                item(key = "${related.keyword}#divider") { HorizontalDivider() }
                 stickyHeader(key = "${related.keyword}#header") {
                     RelatedMangaTitle(
                         title = if (relatedManga.keyword.isNotBlank()) {
-                            stringResource(SYMR.strings.related_mangas_more)
+                            stringResource(KMR.strings.related_mangas_more)
                         } else {
-                            stringResource(SYMR.strings.pref_source_related_mangas)
+                            stringResource(KMR.strings.pref_source_related_mangas)
                         },
                         subtitle = null,
                         onClick = {

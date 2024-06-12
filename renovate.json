@@ -1,10 +1,13 @@
 {
-  "baseBranches": ["master"],
-  "rebaseWhen": "conflicted",
-  "labels": ["Dependencies"],
-  "extends": [
-    ["config:best-practices"],
-    "github>mihonapp/mihon//.github/renovate.json5"
+  "baseBranches": [
+    "develop"
   ],
-  "includeForks": true
+  "rebaseWhen": "conflicted",
+  "labels": [
+    "Dependencies"
+  ],
+  "extends": [
+    "config:best-practices",
+    "github>mihonapp/mihon//.github/renovate.json5"
+  ]
 }

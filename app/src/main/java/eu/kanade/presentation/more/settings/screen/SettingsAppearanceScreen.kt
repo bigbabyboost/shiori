@@ -13,6 +13,7 @@ import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import com.materialkolor.PaletteStyle
 import eu.kanade.core.preference.asState
+import eu.kanade.domain.source.service.SourcePreferences
 import eu.kanade.domain.ui.UiPreferences
 import eu.kanade.domain.ui.model.TabletUiMode
 import eu.kanade.domain.ui.model.ThemeMode
@@ -25,6 +26,7 @@ import eu.kanade.tachiyomi.util.system.toast
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.toImmutableMap
 import tachiyomi.i18n.MR
+import tachiyomi.i18n.kmk.KMR
 import tachiyomi.i18n.sy.SYMR
 import tachiyomi.presentation.core.i18n.pluralStringResource
 import tachiyomi.presentation.core.i18n.stringResource
@@ -113,15 +115,15 @@ object SettingsAppearanceScreen : SearchableSettings {
             Injekt.get<UiPreferences>().detailsPageThemeCoverBased().asState(scope)
         }
         return Preference.PreferenceGroup(
-            title = stringResource(MR.strings.pref_details_page_theme),
+            title = stringResource(KMR.strings.pref_details_page_theme),
             preferenceItems = persistentListOf(
                 Preference.PreferenceItem.SwitchPreference(
                     pref = uiPreferences.detailsPageThemeCoverBased(),
-                    title = stringResource(MR.strings.pref_details_page_theme_cover_based),
+                    title = stringResource(KMR.strings.pref_details_page_theme_cover_based),
                 ),
                 Preference.PreferenceItem.ListPreference(
                     pref = uiPreferences.themeCoverBasedStyle(),
-                    title = stringResource(MR.strings.pref_theme_cover_based_style),
+                    title = stringResource(KMR.strings.pref_theme_cover_based_style),
                     enabled = detailsPageThemeCoverBased,
                     entries = PaletteStyle.entries
                         .associateWith { it.name }
@@ -129,7 +131,7 @@ object SettingsAppearanceScreen : SearchableSettings {
                 ),
                 Preference.PreferenceItem.SwitchPreference(
                     pref = uiPreferences.themeCoverBasedAnimate(),
-                    title = stringResource(MR.strings.pref_theme_cover_based_animate),
+                    title = stringResource(KMR.strings.pref_theme_cover_based_animate),
                     enabled = detailsPageThemeCoverBased,
                 ),
             ),
@@ -195,6 +197,7 @@ object SettingsAppearanceScreen : SearchableSettings {
     @Composable
     fun getForkGroup(uiPreferences: UiPreferences): Preference.PreferenceGroup {
         val previewsRowCount by uiPreferences.previewsRowCount().collectAsState()
+        val sourcePreferences = remember { Injekt.get<SourcePreferences>() }
 
         return Preference.PreferenceGroup(
             stringResource(SYMR.strings.pref_category_fork),
@@ -202,6 +205,12 @@ object SettingsAppearanceScreen : SearchableSettings {
                 Preference.PreferenceItem.SwitchPreference(
                     pref = uiPreferences.expandFilters(),
                     title = stringResource(SYMR.strings.toggle_expand_search_filters),
+                ),
+                Preference.PreferenceItem.SwitchPreference(
+                    pref = uiPreferences.expandRelatedTitles(),
+                    title = stringResource(KMR.strings.pref_expand_related_titles),
+                    subtitle = stringResource(KMR.strings.pref_expand_related_titles_summary),
+                    enabled = sourcePreferences.relatedMangas().get(),
                 ),
                 Preference.PreferenceItem.SwitchPreference(
                     pref = uiPreferences.recommendsInOverflow(),

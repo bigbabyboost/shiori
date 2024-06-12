@@ -63,18 +63,18 @@ import kotlinx.collections.immutable.ImmutableList
 import tachiyomi.domain.source.model.Pin
 import tachiyomi.domain.source.model.Source
 import tachiyomi.i18n.MR
+import tachiyomi.i18n.kmk.KMR
 import tachiyomi.i18n.sy.SYMR
 import tachiyomi.presentation.core.components.FastScrollLazyColumn
 import tachiyomi.presentation.core.components.LabeledCheckbox
 import tachiyomi.presentation.core.components.material.SecondaryItemAlpha
 import tachiyomi.presentation.core.components.material.padding
-import tachiyomi.presentation.core.components.material.topSmallPaddingValues
 import tachiyomi.presentation.core.i18n.stringResource
+import tachiyomi.presentation.core.screens.EmptyScreen
 import tachiyomi.presentation.core.screens.LoadingScreen
 import tachiyomi.presentation.core.theme.header
 import tachiyomi.presentation.core.util.clearFocusOnSoftKeyboardHide
 import tachiyomi.presentation.core.util.isScrollingUp
-import tachiyomi.presentation.core.util.plus
 import tachiyomi.presentation.core.util.runOnEnterKeyPressed
 import tachiyomi.presentation.core.util.secondaryItemAlpha
 import tachiyomi.source.local.LocalSource
@@ -98,24 +98,24 @@ fun SourcesScreen(
 
     when {
         state.isLoading -> LoadingScreen(Modifier.padding(contentPadding))
+        state.isEmpty && state.searchQuery.isNullOrBlank() -> EmptyScreen(
+            MR.strings.source_empty_screen,
+            modifier = Modifier.padding(contentPadding),
+        )
         // KMK -->
-        // Disable this since a query with empty result will cause empty screen and hide search box
-        // state.isEmpty -> EmptyScreen(
-        //     MR.strings.source_empty_screen,
-        //     modifier = Modifier.padding(contentPadding),
-        // )
-        else -> Column {
+        else -> Column(
+            modifier = Modifier.padding(contentPadding),
+        ) {
             AnimatedFloatingSearchBox(
                 listState = lazyListState,
                 searchQuery = state.searchQuery,
                 onChangeSearchQuery = onChangeSearchQuery,
-                placeholderText = stringResource(MR.strings.action_source_search),
+                placeholderText = stringResource(KMR.strings.action_source_search),
             )
 
             FastScrollLazyColumn(
                 state = lazyListState,
                 // KMK <--
-                contentPadding = contentPadding + topSmallPaddingValues,
             ) {
                 items(
                     items = state.items,

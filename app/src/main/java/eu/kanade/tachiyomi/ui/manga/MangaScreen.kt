@@ -23,6 +23,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.core.net.toUri
 import cafe.adriel.voyager.core.model.rememberScreenModel
+import cafe.adriel.voyager.core.model.screenModelScope
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.currentOrThrow
@@ -90,6 +91,7 @@ import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.launch
 import logcat.LogPriority
 import tachiyomi.core.common.i18n.stringResource
+import tachiyomi.core.common.util.lang.launchIO
 import tachiyomi.core.common.util.lang.launchUI
 import tachiyomi.core.common.util.lang.withIOContext
 import tachiyomi.core.common.util.lang.withNonCancellableContext
@@ -282,6 +284,9 @@ class MangaScreen(
             // KMK -->
             getMangaState = { screenModel.getManga(initialManga = it) },
             onRelatedMangasScreenClick = {
+                if (successState.isRelatedMangasFetched == null) {
+                    screenModel.screenModelScope.launchIO { screenModel.fetchRelatedMangasFromSource(onDemand = true) }
+                }
                 navigator.push(
                     RelatedMangasScreen(
                         mangaScreenModel = screenModel,
@@ -525,19 +530,21 @@ class MangaScreen(
             return
         }
 
-        when (val previousController = navigator.items[navigator.size - 2]) {
+        navigator.popUntil { screen ->
+            navigator.size < 2 || screen is BrowseSourceScreen ||
+                screen is HomeScreen || screen is SourceFeedScreen
+        }
+
+        when (val previousController = navigator.lastItem) {
             is HomeScreen -> {
-                navigator.pop()
                 previousController.search(query)
             }
             is BrowseSourceScreen -> {
-                navigator.pop()
                 previousController.search(query)
             }
             // SY -->
             is SourceFeedScreen -> {
-                navigator.pop()
-                navigator.replace(BrowseSourceScreen(previousController.sourceId, query))
+                navigator.push(BrowseSourceScreen(previousController.sourceId, query))
             }
             // SY <--
         }
@@ -553,13 +560,24 @@ class MangaScreen(
             return
         }
 
-        val previousController = navigator.items[navigator.size - 2]
-        if (previousController is BrowseSourceScreen && source is HttpSource) {
-            navigator.pop()
-            previousController.searchGenre(genreName)
-        } else {
-            performSearch(navigator, genreName, global = false)
+        var previousController: cafe.adriel.voyager.core.screen.Screen
+        var idx = navigator.size - 2
+        while (idx >= 0) {
+            previousController = navigator.items[idx--]
+            if (previousController is BrowseSourceScreen && source is HttpSource) {
+                navigator.popUntil { navigator.size == idx + 2 }
+                previousController.searchGenre(genreName)
+                return
+            }
+            if (previousController is SourceFeedScreen && source is HttpSource) {
+                navigator.popUntil { navigator.size == idx + 2 }
+                navigator.push(BrowseSourceScreen(previousController.sourceId, ""))
+                previousController = navigator.lastItem as BrowseSourceScreen
+                previousController.searchGenre(genreName)
+                return
+            }
         }
+        performSearch(navigator, genreName, global = false)
     }
 
     /**

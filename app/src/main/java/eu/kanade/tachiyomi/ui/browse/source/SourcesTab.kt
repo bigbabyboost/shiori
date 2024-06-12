@@ -31,6 +31,7 @@ import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import tachiyomi.i18n.MR
+import tachiyomi.i18n.kmk.KMR
 import tachiyomi.i18n.sy.SYMR
 import tachiyomi.presentation.core.i18n.stringResource
 
@@ -57,7 +58,7 @@ fun Screen.sourcesTab(
                 ),
                 // KMK -->
                 AppBar.Action(
-                    title = stringResource(MR.strings.action_toggle_nsfw_only),
+                    title = stringResource(KMR.strings.action_toggle_nsfw_only),
                     icon = Icons.Outlined._18UpRating,
                     iconTint = if (state.nsfwOnly) MaterialTheme.colorScheme.error else LocalContentColor.current,
                     onClick = { screenModel.toggleNsfwOnly() },
@@ -70,7 +71,17 @@ fun Screen.sourcesTab(
                 ),
             )
         } else {
-            persistentListOf()
+            // Merge: find in another source
+            persistentListOf(
+                // KMK -->
+                AppBar.Action(
+                    title = stringResource(KMR.strings.action_toggle_nsfw_only),
+                    icon = Icons.Outlined._18UpRating,
+                    iconTint = if (state.nsfwOnly) MaterialTheme.colorScheme.error else LocalContentColor.current,
+                    onClick = { screenModel.toggleNsfwOnly() },
+                ),
+                // KMK <--
+            )
         },
         // SY <--
         content = { contentPadding, snackbarHostState ->
@@ -119,8 +130,9 @@ fun Screen.sourcesTab(
                         onDismiss = screenModel::closeDialog,
                         // KMK -->
                         onClickSettings = {
-                            if (source.installedExtension !== null)
+                            if (source.installedExtension !== null) {
                                 navigator.push(ExtensionDetailsScreen(source.installedExtension!!.pkgName))
+                            }
                             screenModel.closeDialog()
                         },
                         // KMK <--
