@@ -24,7 +24,7 @@
         <changelogtext>[b]Fix:[/b] Revert chapter's filter icon</changelogtext>
     </changelogversion>
     <changelogversion versionName="1.11.1" changeDate="July 04, 2024">
-        <changelogtext>[b]Komikku's Discord channel[/b]</changelogtext>
+        <changelogtext>[b]Shiori's Discord channel[/b]</changelogtext>
         <changelogtext>[b]New:[/b] App icon</changelogtext>
         <changelogtext>[b]New:[/b] More App themes</changelogtext>
         <changelogtext>[b]New:[/b] Theme based on entry's cover color</changelogtext>
@@ -61,7 +61,7 @@
         <changelogtext>[b]Improved[/b] Click manga's source name will jump to source browsing</changelogtext>
         <changelogtext>[b]Improved[/b] Show extensions/sources NSFW &amp; languages tag</changelogtext>
         <changelogtext>[b]Improved[/b] Jump to extensions' settings from Source screen</changelogtext>
-        <changelogtext>Migrate to Komikku's own Tracking clients</changelogtext>
+        <changelogtext>Migrate to Shiori's own Tracking clients</changelogtext>
         <changelogtext>[b]New[/b] Configurable interval to refresh entries from downloaded storage</changelogtext>
         <changelogtext>Updater switched to method similar to Mihon's</changelogtext>
         <changelogtext>Revert back support to show extensions' changelog &amp; readme</changelogtext>

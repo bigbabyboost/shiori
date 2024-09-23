@@ -31,13 +31,13 @@
         <changelogtext>[b]New:[/b] Use language flags</changelogtext>
         <changelogtext>[b]New:[/b] Bulk-merging multiple library entries</changelogtext>
         <changelogtext>[b]New:[/b] Ability to enable/disable repo</changelogtext>
-        <changelogtext>[b]New:[/b] Show repo icon for Komikku &amp; Keiyoushi</changelogtext>
+        <changelogtext>[b]New:[/b] Show repo icon for Shiori &amp; Keiyoushi</changelogtext>
         <changelogtext>[b]New:[/b] Custom themes</changelogtext>
         <changelogtext>[b]New:[/b] Allow sync Feeds &amp; extension-repo settings</changelogtext>
         <changelogtext>[b]New:[/b] Add 'show entry' action to download notifications</changelogtext>
         <changelogtext>[b]New:[/b] Add option to skip downloading duplicate read chapters</changelogtext>
         <changelogtext>[b]New:[/b] Delete duplicate downloaded chapters when they are automatically marked as read</changelogtext>
-        <changelogtext>[b]New:[/b] Remove the 'UNOFFICIAL' status, remove built-in Komikku repo, instead allow adding it as default</changelogtext>
+        <changelogtext>[b]New:[/b] Remove the 'UNOFFICIAL' status, remove built-in Shiori repo, instead allow adding it as default</changelogtext>
         <changelogtext>[b]Improve:[/b] Show same extension from multiple repos &amp; show their repo's name</changelogtext>
         <changelogtext>[b]Improve:[/b] Rename Related Titles to Suggestions</changelogtext>
         <changelogtext>[b]Improve:[/b] Add more auto backup hours</changelogtext>
@@ -168,11 +168,11 @@
         <changelogtext>[b]Improve[/b] Option to not show Related titles by default but using a button to open that screen</changelogtext>
         <changelogtext>[b]Fix[/b] laggy with scroll</changelogtext>
         <changelogtext>[b]Fix[/b] chapter's date wrong color randomly</changelogtext>
-        <changelogtext>[b]Fix[/b] Bangumi tracker for Komikku, thanks @jimlee0824</changelogtext>
+        <changelogtext>[b]Fix[/b] Bangumi tracker for Shiori, thanks @jimlee0824</changelogtext>
         <changelogtext>[b]Fix[/b] chapter number parsing when number is after unwanted tag</changelogtext>
         <changelogtext>[b]Fix[/b] sources' NSFW filter was being reverted</changelogtext>
         <changelogtext>[b]Improve[/b] Hide Related titles completely if not found any</changelogtext>
-        <changelogtext>[b]Improve[/b] Translation for Komikku's string</changelogtext>
+        <changelogtext>[b]Improve[/b] Translation for Shiori's string</changelogtext>
         <changelogtext>[b]Improve[/b] Default to put ShowRecommendation in overflow menu</changelogtext>
         <changelogtext>[b]Improve[/b] Check category order before restoring from backup</changelogtext>
         <changelogtext>[b]Improve[/b] Remove some legacy folder/file name lookup for download</changelogtext>
@@ -192,7 +192,7 @@
     <changelogversion versionName="r8928" changeDate="May 24, 2024">
         <changelogtext>[b]New[/b] Auto sync read chapters from Trackers &amp; mark read to update</changelogtext>
         <changelogtext>[b]Improved[/b] Improve Related Mangas fetching</changelogtext>
-        <changelogtext>[b]New[/b] Komikku's Discord channel</changelogtext>
+        <changelogtext>[b]New[/b] Shiori's Discord channel</changelogtext>
     </changelogversion>
     <changelogversion versionName="r8923" changeDate="May 20, 2024">
         <changelogtext>[b]New[/b] A dedicated screen for related entries, fetching directly from sources</changelogtext>
@@ -219,7 +219,7 @@
         <changelogtext>[b]Improved[/b] Click manga's source name will jump to source browsing</changelogtext>
         <changelogtext>[b]Improved[/b] Show extensions/sources NSFW &amp; languages tag</changelogtext>
         <changelogtext>[b]Improved[/b] Jump to extensions' settings from Source screen</changelogtext>
-        <changelogtext>[b]New[/b] Migrate to Komikku's own Tracking clients</changelogtext>
+        <changelogtext>[b]New[/b] Migrate to Shiori's own Tracking clients</changelogtext>
         <changelogtext>[b]New[/b] Configurable interval to refresh entries from downloaded storage</changelogtext>
         <changelogtext>Updater switched to method similar to Mihon's</changelogtext>
         <changelogtext>Revert back support to show extensions' changelog &amp; readme</changelogtext>

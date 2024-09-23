@@ -54,7 +54,7 @@ interface Source {
      * Get the list of pages a chapter has. Pages should be returned
      * in the expected order; the index is ignored.
      *
-     * @since komikku/extensions-lib 1.7
+     * @since shiori/extensions-lib 1.7
      * @param chapter the chapter.
      * @return the pages for the chapter.
      */
@@ -64,7 +64,7 @@ interface Source {
     /**
      * Get all the available related mangas for a manga.
      *
-     * @since komikku/extensions-lib 1.6
+     * @since shiori/extensions-lib 1.6
      * @param manga the current manga to get related mangas.
      * @return a list of <keyword, related mangas>
      */

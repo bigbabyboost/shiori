@@ -50,9 +50,9 @@ internal class ExtensionApi {
     suspend fun findExtensions(): List<Extension.Available> {
         val officialRepo = ExtensionRepo(
             baseUrl = OFFICIAL_REPO_BASE_URL,
-            name = "Komikku Official Extensions Repo",
-            shortName = "Komikku Official",
-            website = "https://komikku-app.github.io",
+            name = "Shiori Official Extensions Repo",
+            shortName = "Shiori Official",
+            website = "https://bigbabyboost.github.io",
             signingKeyFingerprint = OFFICIAL_REPO_SIGNATURE,
         )
         return withIOContext {

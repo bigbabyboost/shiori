@@ -25,7 +25,7 @@ class ExtensionInstallService : Service() {
 
     override fun onCreate() {
         val notification = notificationBuilder(Notifications.CHANNEL_EXTENSIONS_UPDATE) {
-            setSmallIcon(R.drawable.ic_komikku)
+            setSmallIcon(R.drawable.ic_shiori)
             setAutoCancel(false)
             setOngoing(true)
             setShowWhen(false)

@@ -338,7 +338,7 @@ abstract class HttpSource : CatalogueSource {
      * Whether parsing related mangas in manga page or extension provide custom related mangas request.
      *
      * @default true
-     * @since komikku/extensions-lib 1.6
+     * @since shiori/extensions-lib 1.6
      */
     override val supportsRelatedMangas: Boolean get() = true
 
@@ -346,7 +346,7 @@ abstract class HttpSource : CatalogueSource {
      * Fetch related mangas for a manga from source/site.
      * Normally it's not needed to override this method.
      *
-     * @since komikku/extensions-lib 1.6
+     * @since shiori/extensions-lib 1.6
      * @param manga the current manga to get related mangas.
      * @return the related mangas for the current manga.
      * @throws UnsupportedOperationException if a source doesn't support related mangas.
@@ -366,7 +366,7 @@ abstract class HttpSource : CatalogueSource {
      * the url, send different headers or request method like POST.
      * Normally it's not needed to override this method.
      *
-     * @since komikku/extensions-lib 1.6
+     * @since shiori/extensions-lib 1.6
      * @param manga the manga to look for related mangas.
      */
     protected open fun relatedMangaListRequest(manga: SManga): Request {
@@ -376,7 +376,7 @@ abstract class HttpSource : CatalogueSource {
     /**
      * Parses the response from the site and returns a list of related mangas.
      *
-     * @since komikku/extensions-lib 1.6
+     * @since shiori/extensions-lib 1.6
      * @param response the response from the site.
      */
     protected open fun relatedMangaListParse(response: Response): List<SManga> = popularMangaParse(response).mangas

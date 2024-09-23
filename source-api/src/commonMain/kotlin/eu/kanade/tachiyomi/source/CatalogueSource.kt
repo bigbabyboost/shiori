@@ -71,21 +71,21 @@ interface CatalogueSource : Source {
     /**
      * Whether parsing related mangas in manga page or extension provide custom related mangas request.
      * @default false
-     * @since komikku/extensions-lib 1.6
+     * @since shiori/extensions-lib 1.6
      */
     val supportsRelatedMangas: Boolean get() = false
 
     /**
      * Extensions doesn't want to use App's [getRelatedMangaListBySearch].
      * @default false
-     * @since komikku/extensions-lib 1.6
+     * @since shiori/extensions-lib 1.6
      */
     val disableRelatedMangasBySearch: Boolean get() = false
 
     /**
      * Disable showing any related titles.
      * @default false
-     * @since komikku/extensions-lib 1.6
+     * @since shiori/extensions-lib 1.6
      */
     val disableRelatedMangas: Boolean get() = false
 
@@ -93,7 +93,7 @@ interface CatalogueSource : Source {
      * Get all the available related mangas for a manga.
      * Normally it's not needed to override this method.
      *
-     * @since komikku/extensions-lib 1.6
+     * @since shiori/extensions-lib 1.6
      * @param manga the current manga to get related mangas.
      * @return a list of <keyword, related mangas>
      * @throws UnsupportedOperationException if a source doesn't support related mangas.
@@ -116,7 +116,7 @@ interface CatalogueSource : Source {
      * Get related mangas provided by extension
      *
      * @return a list of <keyword, related mangas>
-     * @since komikku/extensions-lib 1.6
+     * @since shiori/extensions-lib 1.6
      */
     suspend fun getRelatedMangaListByExtension(
         manga: SManga,
@@ -131,7 +131,7 @@ interface CatalogueSource : Source {
                 } else {
                     throw UnsupportedOperationException(
                         "Extension doesn't support site's related entries," +
-                            " please report an issue to Komikku.",
+                            " please report an issue to Shiori.",
                     )
                 }
             }
@@ -140,7 +140,7 @@ interface CatalogueSource : Source {
     /**
      * Fetch related mangas for a manga from source/site.
      *
-     * @since komikku/extensions-lib 1.6
+     * @since shiori/extensions-lib 1.6
      * @param manga the current manga to get related mangas.
      * @return the related mangas for the current manga.
      * @throws UnsupportedOperationException if a source doesn't support related mangas.
@@ -151,7 +151,7 @@ interface CatalogueSource : Source {
      * Slit & strip manga's title into separate searchable keywords.
      * Used for searching related mangas.
      *
-     * @since komikku/extensions-lib 1.6
+     * @since shiori/extensions-lib 1.6
      * @return List of keywords.
      */
     fun String.stripKeywordForRelatedMangas(): List<String> {
@@ -175,7 +175,7 @@ interface CatalogueSource : Source {
      * Get related mangas by searching for each keywords from manga's title.
      *
      * @return a list of <keyword, related mangas>
-     * @since komikku/extensions-lib 1.6
+     * @since shiori/extensions-lib 1.6
      */
     suspend fun getRelatedMangaListBySearch(
         manga: SManga,

@@ -43,19 +43,25 @@ jobs:
           java-version: 17
           distribution: temurin
 
-      - name: Write google-services.json
-        uses: DamianReeves/write-file-action@6929a9a6d1807689191dcc8bbe62b54d70a32b42 # v1.3
-        with:
-          path: app/google-services.json
-          contents: ${{ secrets.GOOGLE_SERVICES_JSON }}
-          write-mode: overwrite
+      - name: Load Google Service file
+        env:
+          DATA: ${{ secrets.GOOGLE_SERVICES_JSON }}
+        run: echo $DATA | base64 -di > app/google-services.json
 
-      - name: Write client_secrets.json
-        uses: DamianReeves/write-file-action@6929a9a6d1807689191dcc8bbe62b54d70a32b42 # v1.3
-        with:
-          path: app/src/main/assets/client_secrets.json
-          contents: ${{ secrets.GOOGLE_CLIENT_SECRETS_JSON }}
-          write-mode: overwrite
+      - name: Load Client Secrets file
+        env:
+          DATA: ${{ secrets.CLIENT_SECRETS_JSON }}
+        run: mkdir -p app/src/main/assets echo $DATA | base64 -di > app/src/main/assets/client_secrets.json
+
+      - name: Load Google Service file
+        env:
+          DATA: ${{ secrets.GOOGLE_SERVICES_JSON }}
+        run: echo $DATA | base64 -di > app/google-services.json
+
+      - name: Load Client Secrets file
+        env:
+          DATA: ${{ secrets.CLIENT_SECRETS_JSON }}
+        run: mkdir -p app/src/main/assets echo $DATA | base64 -di > app/src/main/assets/client_secrets.json
 
       - name: Set up gradle
         uses: gradle/actions/setup-gradle@d156388eb19639ec20ade50009f3d199ce1e2808 # v4
@@ -82,11 +88,11 @@ jobs:
           echo "VERSION_TAG=$version_tag" >> $GITHUB_OUTPUT
           echo "COMMIT_COUNT=$commit_count"
           echo "COMMIT_COUNT=$commit_count" >> $GITHUB_OUTPUT
-          mv app/build/outputs/apk/standard/preview/app-standard-universal-preview-unsigned-signed.apk Komikku-$version_tag-r$commit_count.apk
+          mv app/build/outputs/apk/standard/preview/app-standard-universal-preview-unsigned-signed.apk Shiori-$version_tag-r$commit_count.apk
 
       - name: Upload APK
         uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874 # v4.4.0
         with:
-          name: Komikku-${{ steps.current_commit.outputs.VERSION_TAG }}-r${{ steps.current_commit.outputs.COMMIT_COUNT }}.apk
+          name: Shiori-${{ steps.current_commit.outputs.VERSION_TAG }}-r${{ steps.current_commit.outputs.COMMIT_COUNT }}.apk
           path: ./*.apk
           retention-days: 1

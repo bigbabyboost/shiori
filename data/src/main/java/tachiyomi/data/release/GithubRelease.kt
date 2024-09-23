@@ -33,7 +33,7 @@ data class GitHubAssets(@SerialName("browser_download_url") val downloadLink: St
  * - Cannot begin or end with a hyphen
  * - Max length of 39 characters
  *
- * Convert '(@cuong-tran)' to '([@cuong-tran](https://github.com/cuong-tran))'
+ * Convert '(@bigbabyboost)' to '([@bigbabyboost](https://github.com/bigbabyboost))'
  *
  * Reference: https://stackoverflow.com/a/30281147
  */
@@ -44,8 +44,8 @@ val gitHubUsernameMentionRegex =
 
 // KMK -->
 /**
- * Convert from: https://github.com/komikku-app/komikku/compare/23d862d17...48fb4a2e6
- * to: [komikku-app/komikku@23d862d17...48fb4a2e6](https://github.com/komikku-app/komikku/compare/23d862d17...48fb4a2e6)
+ * Convert from: https://github.com/bigbabyboost/shiori/compare/23d862d17...48fb4a2e6
+ * to: [bigbabyboost/shiori@23d862d17...48fb4a2e6](https://github.com/bigbabyboost/shiori/compare/23d862d17...48fb4a2e6)
  */
 val gitHubCommitsCompareRegex =
     """https://github.com/(?<owner>[^/]+)/(?<repo>[^/]+)/compare/(?<from>[0-9a-f.rv]+)\.\.\.(?<to>[0-9a-f.rv]+)"""

@@ -1,5 +1,5 @@
 name: ⭐ Feature request
-description: Suggest a feature to improve Komikku
+description: Suggest a feature to improve Shiori
 labels: [Feature request]
 body:
 
@@ -7,7 +7,7 @@ body:
     id: feature-description
     attributes:
       label: Describe your suggested feature
-      description: How can Komikku be improved?
+      description: How can Shiori be improved?
       placeholder: |
         Example:
           "It should work like this..."
@@ -31,9 +31,9 @@ body:
           required: true
         - label: I have written a short but informative title.
           required: true
-        - label: If this is an issue with an official extension, I should be opening an issue in the [extensions repository](https://github.com/komikku-app/extensions/issues/new/choose).
+        - label: If this is an issue with an official extension, I should be opening an issue in the [extensions repository](https://github.com/bigbabyboost/extensions/issues/new/choose).
           required: true
-        - label: I have updated the app to version **[1.11.2](https://github.com/komikku-app/komikku/releases/latest)**.
+        - label: I have updated the app to version **[1.11.2](https://github.com/bigbabyboost/shiori/releases/latest)**.
           required: true
         - label: I will fill out all of the requested information in this form.
           required: true

@@ -2,13 +2,13 @@
  <img width=200px height=200px src="./.github/readme-images/app-icon.png"/>
 </p>
 
-<h1 align="center"> Komikku </h1>
+<h1 align="center"> Shiori </h1>
 
 | Releases | Preview | CI builds | Discussions |
 |----------|---------|-----------|-------------|
-| [![GitHub downloads](https://img.shields.io/github/downloads/komikku-app/komikku/total?label=Downloads&labelColor=27303D&color=0D1117&logo=github&logoColor=FFFFFF&style=flat)](https://github.com/komikku-app/komikku/releases) [![Stable](https://img.shields.io/github/release/komikku-app/komikku.svg?maxAge=3600&label=Stable&labelColor=06599d&color=043b69)](https://github.com/komikku-app/komikku/releases/latest) [![Build](https://img.shields.io/github/actions/workflow/status/komikku-app/komikku/build_release.yml?labelColor=27303D)](https://github.com/komikku-app/komikku/actions/workflows/build_push.yml) | [![GitHub downloads](https://img.shields.io/github/downloads/komikku-app/komikku-preview/total?label=Downloads&labelColor=27303D&color=0D1117&logo=github&logoColor=FFFFFF&style=flat)](https://github.com/komikku-app/komikku-preview/releases) [![Beta](https://img.shields.io/github/v/release/komikku-app/komikku-preview.svg?maxAge=3600&label=Beta&labelColor=2c2c47&color=1c1c39)](https://github.com/komikku-app/komikku-preview/releases/latest) [![Beta build](https://img.shields.io/github/actions/workflow/status/komikku-app/komikku-preview/build_app.yml?labelColor=27303D)](https://github.com/komikku-app/komikku-preview/actions/workflows/build_app.yml) | [![CI](https://img.shields.io/github/actions/workflow/status/komikku-app/komikku/build_check.yml?labelColor=27303D)](https://github.com/komikku-app/komikku/actions/workflows/build_check.yml) | [![Discord](https://img.shields.io/discord/1242381704459452488?label=discord&labelColor=7289da&color=2c2f33&style=flat)](https://discord.gg/85jB7V5AJR) |
+| [![GitHub downloads](https://img.shields.io/github/downloads/bigbabyboost/shiori/total?label=Downloads&labelColor=27303D&color=0D1117&logo=github&logoColor=FFFFFF&style=flat)](https://github.com/bigbabyboost/shiori/releases) [![Stable](https://img.shields.io/github/release/bigbabyboost/shiori.svg?maxAge=3600&label=Stable&labelColor=06599d&color=043b69)](https://github.com/bigbabyboost/shiori/releases/latest) [![Build](https://img.shields.io/github/actions/workflow/status/bigbabyboost/shiori/build_release.yml?labelColor=27303D)](https://github.com/bigbabyboost/shiori/actions/workflows/build_push.yml) | [![GitHub downloads](https://img.shields.io/github/downloads/bigbabyboost/shiori-preview/total?label=Downloads&labelColor=27303D&color=0D1117&logo=github&logoColor=FFFFFF&style=flat)](https://github.com/bigbabyboost/shiori-preview/releases) [![Beta](https://img.shields.io/github/v/release/bigbabyboost/shiori-preview.svg?maxAge=3600&label=Beta&labelColor=2c2c47&color=1c1c39)](https://github.com/bigbabyboost/shiori-preview/releases/latest) [![Beta build](https://img.shields.io/github/actions/workflow/status/bigbabyboost/shiori-preview/build_app.yml?labelColor=27303D)](https://github.com/bigbabyboost/shiori-preview/actions/workflows/build_app.yml) | [![CI](https://img.shields.io/github/actions/workflow/status/bigbabyboost/shiori/build_check.yml?labelColor=27303D)](https://github.com/bigbabyboost/shiori/actions/workflows/build_check.yml) | [![Discord](https://img.shields.io/discord/1242381704459452488?label=discord&labelColor=7289da&color=2c2f33&style=flat)](https://discord.gg/85jB7V5AJR) |
 
-**[Help translate](https://crowdin.com/project/komikku/invite?h=f922abd4193e77309b084a08c74b89872112170)**
+**[Help translate](https://crowdin.com/project/shiori/invite?h=f922abd4193e77309b084a08c74b89872112170)**
 
 A free and open source manga reader which is based off TachiyomiSY & Mihon/Tachiyomi. This fork is meant to provide new & useful features while regularly take features/updates from Mihon or other forks like SY, J2K and Neko...
 
@@ -16,7 +16,7 @@ A free and open source manga reader which is based off TachiyomiSY & Mihon/Tachi
 
 ## Features
 
-### Komikku's key features:
+### Shiori's key features:
 - [x] Built-in extensions repository, always up-to-date with Keiyoushi with a few more sources & improvements.
 - [x] Automatically show `Related Titles` to current entry for all sources.
 - [x] Auto theme color based on each entry's cover for entry View & Reader.
@@ -95,9 +95,9 @@ Additional features for some extensions, features include custom description, op
 </details>
 
 ## Download
-Get the app from our [releases page](https://github.com/komikku-app/komikku/releases/latest).
+Get the app from our [releases page](https://github.com/bigbabyboost/shiori/releases/latest).
 
-If you want to try new features before they get to the stable release, you can download the preview version [here](https://github.com/komikku-app/komikku-preview/releases/latest).
+If you want to try new features before they get to the stable release, you can download the preview version [here](https://github.com/bigbabyboost/shiori-preview/releases/latest).
 
 ## Issues, Feature Requests and Contributing
 
@@ -105,7 +105,7 @@ Please make sure to read the full guidelines. Your issue may be closed without w
 
 <details><summary>Issues</summary>
 
-1. **Before reporting a new issue, take a look at the [FAQ](https://mihon.app/docs/faq/general), the [changelog](https://github.com/komikku-app/komikku/releases) and the already opened [issues](https://github.com/komikku-app/komikku/issues).**
+1. **Before reporting a new issue, take a look at the [FAQ](https://mihon.app/docs/faq/general), the [changelog](https://github.com/bigbabyboost/shiori/releases) and the already opened [issues](https://github.com/bigbabyboost/shiori/issues).**
 2. If you are unsure, ask here: [![Discord](https://img.shields.io/discord/1242381704459452488)](https://discord.gg/85jB7V5AJR)
 
 </details>
@@ -120,7 +120,7 @@ Please make sure to read the full guidelines. Your issue may be closed without w
 * If it could be device-dependent, try reproducing on another device (if possible)
 * Don't group unrelated requests into one issue
 
-Use the [issue forms](https://github.com/komikku-app/komikku/issues/new/choose) to submit a bug.
+Use the [issue forms](https://github.com/bigbabyboost/shiori/issues/new/choose) to submit a bug.
 
 </details>
 
@@ -142,7 +142,7 @@ See [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
 
 ## FAQ
 
-[See our website.](https://komikku-app.github.io/)
+[See our website.](https://bigbabyboost.github.io/)
 You can also reach out to us on [Discord](https://discord.gg/85jB7V5AJR).
 
 ## License

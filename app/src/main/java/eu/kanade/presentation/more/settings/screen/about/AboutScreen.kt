@@ -229,7 +229,7 @@ object AboutScreen : Screen() {
                         title = stringResource(MR.strings.help_translate),
                         onPreferenceClick = {
                             uriHandler.openUri(
-                                "https://crowdin.com/project/komikku/" +
+                                "https://crowdin.com/project/shiori/" +
                                     "invite?h=f922abd4193e77309b084a08c74b89872112170",
                             )
                         },
@@ -285,7 +285,7 @@ object AboutScreen : Screen() {
                         LinkIcon(
                             label = "GitHub",
                             icon = CustomIcons.Github,
-                            url = "https://github.com/komikku-app",
+                            url = "https://github.com/bigbabyboost",
                         )
                     }
                 }
