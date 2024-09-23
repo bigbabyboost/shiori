@@ -19,6 +19,8 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+permissions:
+  contents: write
 
 jobs:
   trigger_preview_build:
