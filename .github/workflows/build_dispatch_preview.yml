@@ -47,6 +47,8 @@ jobs:
         run: |
           git tag "r${{ steps.prepare_build.outputs.COMMIT_COUNT }}"
           git push origin "r${{ steps.prepare_build.outputs.COMMIT_COUNT }}"
+        env :
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Get branch names
         id: branch_names
