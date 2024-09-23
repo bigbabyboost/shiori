@@ -26,10 +26,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Debug Info
-        run: |
-          git remote -v
-          echo "Token is set."
 
       - name: Clone repo
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
@@ -46,6 +42,10 @@ jobs:
 
           commit_count=$(git rev-list --count HEAD)
           echo "COMMIT_COUNT=$commit_count" >> $GITHUB_OUTPUT
+      - name: Debug Info
+        run: |
+          git remote -v
+          echo "Token is set."
 
       - name: Create Tag 'r${{ steps.prepare_build.outputs.COMMIT_COUNT }}'
         if: ${{ github.ref }} == "refs/heads/master"
